@@ -1,0 +1,30 @@
+<% include ./header %>
+ 	<style type="text/css">
+ 		body{
+ 			background:black;
+ 		}
+  	</style>
+<div class="container" >
+  
+  <header class="jumbotron" style="margin:30px 30px 10px 30px;">
+    <div class="container" style="text-align:center;margin-left:50px;">
+      <h1>Your search results</h1>
+    </div>
+    <a href="/" class="btn btn-primary" style="text-align:center;width40px;height:36px;">back</a>
+  </header>
+  <div class="row text-center" style="display:flex; flex-wrap:wrap; ">
+    <% data["Search"].forEach(function(movie){ %>
+    	<% if(movie["Poster"]!="N/A") { %>
+      <div class = "col-sm-12 col-md-4" style="margin-top:10px;">
+        <div class="img-thumbnail">
+          <img src="<%= movie["Poster"] %>" class="img-thumbnail">
+          <div class="caption">
+            <strong><p><%=  movie["Title"]  %>   <%=  movie["Year"]  %></p></strong>
+          </div>
+        </div>
+      </div>  
+      <% } %>
+    <%  }); %>
+  </div>
+</div>
+<% include ./footer %>
